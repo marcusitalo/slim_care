@@ -1,15 +1,13 @@
 <?php
 //Login
 $route['*']['/']                                         = array('LoginController', 'landpage');
-$route['*']['/login']                                     = array('LoginController', 'login');
-$route['*']['/info']                                     = array('LoginController', 'info');
-$route['*']['/welcome']                                    = array('LoginController', 'welcome');
-$route['*']['/acontecimento']                            = array('LoginController', 'welcome');
+$route['*']['/admin']                                     = array('LoginController', 'login');
+$route['*']['/dashboard']                                    = array('LoginController', 'dashboard');
 $route['*']['/logout']                                     = array('LoginController', 'logout');
 $route['*']['/erro']                                     = array('LoginController', 'erro');
 $route['*']['/habilitarjavascript']                     = array('LoginController', 'habilitarjavascript');
 //Usuarios
-$route['*']['/usuarios']                                 = array('UsuarioController', 'index');
+$route['*']['/usuarios']                                 = array('UsuarioController', 'listar');
 $route['*']['/usuarios/cadastro']                         = array('UsuarioController', 'cadastro');
 $route['*']['/usuarios/editar/:id']                     = array('UsuarioController', 'editar');
 $route['*']['/usuarios/finalizar']                         = array('UsuarioController', 'finalizar');

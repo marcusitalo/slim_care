@@ -11,9 +11,6 @@ class LoginController extends CoreController
 		$this->data['baseurl'] = Doo::conf()->APP_URL;
 		$this->data['group']   = $_SESSION['user_system']['group'] = "Visitante";
 		$this->data['report']  = $_SESSION['user_system']['report']  = "1|Sessão Expirou.";
-
-		// $this->_redirect($this->data['baseurl']);
-
 		$this->render("index", $this->data);
 	}
 	public function logout()
@@ -23,7 +20,7 @@ class LoginController extends CoreController
 		$this->data['group']   = $_SESSION['user_system']['group'] = "Visitante";
 		$this->data['report']  = $_SESSION['user_system']['report']  = "1|Tchau, " . $this->data['usuario'] . ".";
 
-		$this->_redirect($this->data['baseurl'], $this->data);
+		$this->_redirect($this->data['baseurl'] . 'admin', $this->data);
 	}
 	public function habilitarjavascript()
 	{
@@ -37,64 +34,69 @@ class LoginController extends CoreController
 
 	public function login()
 	{
-		if (empty($_POST['login']) || empty($_POST['senha'])) {
+		if (empty($_POST['x-client']) || empty($_POST['x-secret'])) {
 			$this->data['report'] = (isset($this->data['report'])) ? $this->data['report'] : "";
 			unset($_SESSION['user_system']);
 			$_SESSION['user_system']['baseurl'] = $this->data['baseurl'] = Doo::conf()->APP_URL;
 			$_SESSION['user_system']['group'] = $this->data['group'] = "Visitante";
 
-			$this->render("index", $this->data);
+			$this->render("admin/globais/header", $this->data);
+			$this->render("admin/signin", $this->data);
+			$this->render("admin/globais/footer", $this->data);
 		} else {
-			if (isset($_POST['login']) && ($_POST['senha'])) {
-				$login = $_POST['login'];
-				$senha = cripto::criptografar($_POST['senha']);
+			if (isset($_POST['x-client']) && ($_POST['x-secret'])) {
+				$login = $_POST['x-client'];
+				$senha = cripto::criptografar($_POST['x-secret']);
 				$status = Doo::db()->fetchAll(sql::querySql('login'), array(':login' => $login, ':senha' => $senha));
+
 				if ($status) {
-					$ativo = $status[0]['ativo'];
-					if ($ativo == '1') {
-						$_SESSION['user_system']['report'] 	= $this->data['report'];
+					$_SESSION['user_system']['report'] 	= $this->data['report'];
 
-						$this->data['group']			= $_SESSION['user_system']['group']			= $status[0]['grupo'];
-						$this->data['usuario']			= $_SESSION['user_system']['usuario']		= $status[0]['nome'];
-						$this->data['identificador']	= $_SESSION['user_system']['identificador']	= $status[0]['id'];
-						$this->data['nivel']			= $_SESSION['user_system']['nivel']			= $status[0]['nivel'];
-						$this->data['foto']				= $_SESSION['user_system']['foto']			= $status[0]['foto'];
+					$this->data['group']			= $_SESSION['user_system']['group']			= $status[0]['group_user'];
+					$this->data['usuario']			= $_SESSION['user_system']['usuario']		= $status[0]['name'];
+					$this->data['identificador']	= $_SESSION['user_system']['identificador']	= $status[0]['id'];
 
-						Doo::loadModel('Usuario');
-						$usuario 						= new Usuario();
-						$usuario->id 					= $status[0]['id'];
-						$result 						= $this->db()->find($usuario);
-						$usuario						= $result[0];
-						$this->data['ultimoacesso']		= $_SESSION['user_system']['ultimoacesso']	= $usuario->data_ultimo_acesso;
+					Doo::loadModel('User');
+					$usuario 						= new User();
+					$usuario->id 					= $status[0]['id'];
+					$result 						= $this->db()->find($usuario);
+					$usuario						= $result[0];
+					$this->data['ultimoacesso']		= $_SESSION['user_system']['ultimoacesso']	= $usuario->update_at;
 
-						$usuario->data_ultimo_acesso	= date('Y-m-d H:i:s');
+					$usuario->update_at	= date('Y-m-d H:i:s');
 
-						Doo::db()->update($usuario);
+					Doo::db()->update($usuario);
 
-						unset($usuario);
+					unset($usuario);
 
-						$this->_redirect($this->data['baseurl'] . 'welcome');
-					} else {
-						unset($_SESSION['user_system']);
-						$_SESSION['user_system']['baseurl']	= $this->data['baseurl'] = Doo::conf()->APP_URL;
-						$_SESSION['user_system']['group']	= $this->data['group'] 	 = "Visitante";
+					$this->data['report'] = (isset($this->data['report'])) ? $this->data['report'] : "";
 
-						$_SESSION['user_system']['report'] = $this->data['report'] = "0|Seu Usuário, Ainda Não foi Ativado pelo Mestre. Aguarde só mais um pouco. :P";
-
-						$this->render("index", $this->data);
-					}
+					$this->_redirect($this->data['baseurl'] . 'dashboard');
 				} else {
+
 					unset($_SESSION['user_system']);
 					$_SESSION['user_system']['baseurl']	= $this->data['baseurl'] = Doo::conf()->APP_URL;
 					$_SESSION['user_system']['group']	= $this->data['group'] 	 = "Visitante";
 
-					$_SESSION['user_system']['report'] = $this->data['report'] = "0|Usuário e/ou Senha Inválido.";
+					$_SESSION['user_system']['report'] = $this->data['report'] = "0|Usuário e/ou Senha Inválido...";
 
-					$this->render("index", $this->data);
+					$this->render("admin/globais/header", $this->data);
+					$this->render("admin/signin", $this->data);
+					$this->render("admin/globais/footer", $this->data);
+					$this->appendFile($this->data, $this->jsPath . 'feedback.js', 'text/javascript');
 				}
 			}
 		}
 	}
+	public function dashboard()
+	{
+		$_SESSION['user_system']['report'] = '';
+		$this->render("admin/globais/header", $this->data);
+		$this->render("admin/globais/menu", $this->data);
+		$this->render("admin/index", $this->data);
+		$this->render("admin/globais/footer", $this->data);
+	}
+
 	public function landpage()
 	{
 		unset($_SESSION['user_system']);
