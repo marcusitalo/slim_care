@@ -18,8 +18,12 @@ class sql
 				break;
 
 
-			case 'listadeusuarios':
-				$sql = "SELECT * FROM user where id <> :id ORDER BY name";
+				case 'listadeusuarios':
+					$sql = "SELECT * FROM user where id <> :id ORDER BY name";
+					break;
+
+				case 'listadelocais':
+					$sql = "SELECT * FROM place ORDER BY name";
 				break;
 
 			case 'observadores':

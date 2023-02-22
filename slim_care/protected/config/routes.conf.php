@@ -16,6 +16,18 @@ $route['*']['/usuarios/desativacao/:id']                = array('UsuarioControll
 $route['*']['/usuarios/excluir']                         = array('UsuarioController', 'excluir');
 $route['*']['/usuarios/ativacao/:id']                    = array('UsuarioController', 'ativacao');
 $route['*']['/usuarios/listar']                            = array('UsuarioController', 'listar');
+
+//Locais
+$route['*']['/locais']                                 = array('PlaceController', 'listar');
+$route['*']['/locais/cadastro']                         = array('PlaceController', 'cadastro');
+$route['*']['/locais/editar/:id']                     = array('PlaceController', 'editar');
+$route['*']['/locais/finalizar']                         = array('PlaceController', 'finalizar');
+$route['*']['/locais/remover/:id']                     = array('PlaceController', 'remover');
+$route['*']['/locais/desativacao/:id']                = array('PlaceController', 'desativacao');
+$route['*']['/locais/excluir']                         = array('PlaceController', 'excluir');
+$route['*']['/locais/ativacao/:id']                    = array('PlaceController', 'ativacao');
+$route['*']['/locais/listar']                            = array('PlaceController', 'listar');
+
 //Ajax
 $route['*']['/verificarexistenciadeusuario']             = array('AjaxController', 'verificarexistenciadeusuario');
 $route['*']['/carregardados']                             = array('AjaxController', 'carregardados');
