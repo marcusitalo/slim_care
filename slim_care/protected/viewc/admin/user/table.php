@@ -1,8 +1,8 @@
 
             <!-- Table Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row g-4">                    
-                    <a href='<?php echo $data['base']; ?>usuarios/cadastro'><button type="button" class="btn btn-primary m-2">Novo Usuário</button></a>
+                <div class="row g-4" style="text-align: end;">                    
+                    <a href='<?php echo $data['base']; ?>admin/usuarios/cadastro'><button type="button" class="btn btn-primary m-2">Novo Usuário</button></a>
                 </div>
                 <div class="row g-4">
                     

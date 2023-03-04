@@ -7,6 +7,7 @@ class UsuarioController extends CoreController
 
 	private $titulo = "Usuários";
 	private $table = "usuarios";
+	private $folder = "user";
 
 	public function listar()
 	{
@@ -21,8 +22,10 @@ class UsuarioController extends CoreController
 
 		$this->render("admin/globais/header", $this->data);
 		$this->render("admin/globais/menu", $this->data);
-		$this->render("admin/user/table", $this->data);
+		$this->render("admin/" . $this->folder . "/table", $this->data);
 		$this->render("admin/globais/footer", $this->data);
+
+		$_SESSION['user_system']['report'] = "";
 	}
 	public function cadastro()
 	{
@@ -31,13 +34,13 @@ class UsuarioController extends CoreController
 		$this->data['foto'] 	 = "";
 		$this->data['acao'] = "finalizar";
 
-		$this->data['action'] = $this->data['baseurl'] . $this->table . "/" . $this->data['acao'];
+		$this->data['action'] = $this->data['baseurl'] . "admin/" . $this->table . "/" . $this->data['acao'];
 
 		$this->data['name'] = $this->data['login'] = $this->data['senha'] = $this->data['disabled'] = $this->data['id'] = "";
 
 		$this->render("admin/globais/header", $this->data);
 		$this->render("admin/globais/menu", $this->data);
-		$this->render("admin/user/form", $this->data);
+		$this->render("admin/" . $this->folder . "/form", $this->data);
 		$this->render("admin/globais/footer", $this->data);
 	}
 	public function remover()
@@ -64,14 +67,14 @@ class UsuarioController extends CoreController
 		$this->data['senha']					= $senha;
 		$this->data['subtitulo']				= $subtitulo;
 		$this->data['acao'] 					= $acao;
-		$this->data['action']					= $this->data['baseurl'] . $this->table . "/" . $this->data['acao'];
+		$this->data['action']					= $this->data['baseurl'] . "admin/" . $this->table . "/" . $this->data['acao'];
 		$this->data['desativar']				= $this->data['baseurl'] . $this->table . "/desativacao/" . $this->data['id'];
 
 		$this->data['disabled'] = $disabled;
 
 		$this->render("admin/globais/header", $this->data);
 		$this->render("admin/globais/menu", $this->data);
-		$this->render("admin/user/form", $this->data);
+		$this->render("admin/" . $this->folder . "/form", $this->data);
 		$this->render("admin/globais/footer", $this->data);
 	}
 	public function finalizar()
@@ -111,7 +114,7 @@ class UsuarioController extends CoreController
 					$_SESSION['user_system']['usuario']	= $objeto->name;
 				}
 			}
-			return array($this->data['base'] . 'dashboard', 302);
+			return array($this->data['base'] . 'admin/usuarios', 302);
 		} catch (PDOException $e) {
 			$_SESSION['user_system']['report'] = $e->getMessage();
 		}
@@ -130,7 +133,7 @@ class UsuarioController extends CoreController
 			$result 				= Doo::db()->delete($objeto);
 
 			$_SESSION['user_system']['report'] = (!isset($result)) ? '3|' . $this->titulo . ' removida com sucesso!' : '0|Falha ao remover ' . $this->titulo;
-			return array($this->data['base'] . 'dashboard', 302);
+			return array($this->data['base'] . 'admin/usuarios', 302);
 		} catch (PDOException $e) {
 			$_SESSION['user_system']['report'] = $e->getMessage();
 		}

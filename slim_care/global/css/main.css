@@ -1,0 +1,52 @@
+#filter_form input[type=date] {
+    border: 0px;
+    text-align: center;
+}
+
+.required:after {
+    content: "*";
+    font-size: 10px;
+    color: red;
+    position: absolute;
+    margin: 0px 5px;
+}
+#formShowDetails input,#formShowDetails select, #formShowDetails textarea {
+    border: 0px;
+    background: #f3f6f9;
+}
+
+@media (max-width: 600px)
+{
+
+    .container-fluid.pt-4.px-4 {
+        padding: 0px!important;
+    }
+    .table>thead {
+        display: none;
+    }
+    table#dataTable tr {
+        display: inline-grid;
+        width: 100%;
+        border: 1px solid;
+        margin: 10px 0px;
+    }
+    table#dataTable tr.odd {
+        background: #fbfbfb!important;
+    }
+    table#dataTable tr.even {
+        background: #f3f3f3!important;
+    }
+    table#dataTable tr td {
+        border: 0px;
+    }
+
+    input[type="search"] {
+        width: 95%;
+    }
+    a.btn.btn-lg.btn-primary.btn-lg-square.back-to-top {
+        transform: scale(.7);
+        margin: 0px!important;
+        right: 15px;
+        bottom: 15px;
+    }
+}

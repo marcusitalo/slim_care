@@ -3,10 +3,10 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="title" content="Consultorio">
-    <meta name="description" content="Website onde os jogadores podem acompanhar os acontecimentos da narração, ler sobre os outros personagens e NPCs." />
-    <meta name="keywords" content="Rpg, rpg, eu jogo rpg, eu jogo rpg la no davi, la no davi, rpg davi" />
-    <meta name="owner" content="eujogorpglanodavi@gmail.com">
+    <meta name="title" content="Slim Care">
+    <meta name="description" content="Cuidados Pós Operatorias" />
+    <meta name="keywords" content="cuidados" />
+    <meta name="owner" content="cuidados">
     <meta name="author" content="Eu">
     <meta name="revisit-after" content="7 dias">
     <meta http-equiv="expires" content="">
@@ -17,15 +17,12 @@
     <meta name="robots" content="index,follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="application-name" content="Eu Jogo Rpg Lá no DAVI">
-    <!-- <meta http-equiv="refresh" content="0; url=/rpg"> -->
-    <meta name="google-site-verification" content="yMOCv5MAdApCKqXpHhA-mLYbSVGDiGOxG9C7wu8H66A" />
-    <title>Consultorio</title>
+    <meta name="application-name" content="Slim Care">
+    <meta http-equiv="refresh" content="0; url=/slim_care">
+    <title>Slim Care</title>
 </head>
 
 <body style='background:#000000;'>
-    <a href="https://eujogorpglanodavi.hol.es/rpg/" style='color:#000000;text-decoration: none;'>Login</a>
-    <a href="https://eujogorpglanodavi.hol.es/rpg/usuarios/cadastro" style='color:#000000;text-decoration: none;'>Cadastre-se</a>
 </body>
 
 </html>

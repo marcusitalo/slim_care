@@ -9,11 +9,16 @@
     <script src="<?php echo $data['globais']; ?>lib/tempusdominus/js/moment.min.js"></script>
     <script src="<?php echo $data['globais']; ?>lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="<?php echo $data['globais']; ?>lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    
+    <!-- Datetable Stylesheet -->
+    <script src="<?php echo $data['globais']; ?>js/jquery.dataTables.js"></script>
 
     <!-- Template Javascript -->
     <script src="<?php echo $data['globais']; ?>js/main.js"></script>
     <script src="<?php echo $data['globais']; ?>js/feedback.js"></script>
+    <script src="<?php echo $data['globais']; ?>js/dataTable.js"></script>
     
+
 </body>
 
 </html>

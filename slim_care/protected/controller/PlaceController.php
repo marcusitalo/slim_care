@@ -22,8 +22,10 @@ class PlaceController extends CoreController
 
 		$this->render("admin/globais/header", $this->data);
 		$this->render("admin/globais/menu", $this->data);
-		$this->render("admin/".$this->folder."/table", $this->data);
+		$this->render("admin/" . $this->folder . "/table", $this->data);
 		$this->render("admin/globais/footer", $this->data);
+
+		$_SESSION['user_system']['report'] = "";
 	}
 	public function cadastro()
 	{
@@ -31,13 +33,13 @@ class PlaceController extends CoreController
 		$this->data['subtitulo'] = "Novo";
 		$this->data['acao'] = "finalizar";
 
-		$this->data['action'] = $this->data['baseurl'] . $this->table . "/" . $this->data['acao'];
+		$this->data['action'] = $this->data['baseurl']  . "admin/" . $this->table . "/" . $this->data['acao'];
 
 		$this->data['name'] = $this->data['location'] = $this->data['disabled'] = $this->data['id'] = "";
 
 		$this->render("admin/globais/header", $this->data);
 		$this->render("admin/globais/menu", $this->data);
-		$this->render("admin/".$this->folder."/form", $this->data);
+		$this->render("admin/" . $this->folder . "/form", $this->data);
 		$this->render("admin/globais/footer", $this->data);
 	}
 	public function remover()
@@ -60,13 +62,13 @@ class PlaceController extends CoreController
 		$this->data['location']					= $objeto->location;
 		$this->data['subtitulo']				= $subtitulo;
 		$this->data['acao'] 					= $acao;
-		$this->data['action']					= $this->data['baseurl'] . $this->table . "/" . $this->data['acao'];
+		$this->data['action']					= $this->data['baseurl']  . "admin/" . $this->table . "/" . $this->data['acao'];
 
 		$this->data['disabled'] = $disabled;
 
 		$this->render("admin/globais/header", $this->data);
 		$this->render("admin/globais/menu", $this->data);
-		$this->render("admin/".$this->folder."/form", $this->data);
+		$this->render("admin/" . $this->folder . "/form", $this->data);
 		$this->render("admin/globais/footer", $this->data);
 	}
 	public function finalizar()
@@ -93,7 +95,7 @@ class PlaceController extends CoreController
 
 				$_SESSION['user_system']['report'] = (isset($result)) ? '3|' . $this->titulo . ' alterado com sucesso!' : '0|Falha ao alterar ' . $this->titulo;
 			}
-			return array($this->data['base'] . 'locais', 302);
+			return array($this->data['base'] . 'admin/locais', 302);
 		} catch (PDOException $e) {
 			$_SESSION['user_system']['report'] = $e->getMessage();
 		}
@@ -112,7 +114,7 @@ class PlaceController extends CoreController
 			$result 				= Doo::db()->delete($objeto);
 
 			$_SESSION['user_system']['report'] = (!isset($result)) ? '3|' . $this->titulo . ' removida com sucesso!' : '0|Falha ao remover ' . $this->titulo;
-			return array($this->data['base'] . 'locais', 302);
+			return array($this->data['base'] . 'admin/locais', 302);
 		} catch (PDOException $e) {
 			$_SESSION['user_system']['report'] = $e->getMessage();
 		}
