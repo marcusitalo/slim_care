@@ -26,7 +26,7 @@ class sql
 				$sql = "SELECT * FROM supplier ORDER BY name";
 				break;
 			case 'listadedespesas':
-				$sql = "SELECT day_expenses as id, DATE_FORMAT(day_expenses,'%d/%m/%Y') as name, count(id) as quantidade, sum(amount) as total FROM expenses GROUP BY day_expenses ORDER BY day_expenses desc";
+				$sql = "SELECT day_expenses as id, DATE_FORMAT(day_expenses,'%d/%m/%Y') as name, count(id) as quantidade, sum(amount) as total,GROUP_CONCAT(supplier) as despesas FROM expenses GROUP BY day_expenses ORDER BY day_expenses desc";
 				break;
 			case 'datalistdespesas':
 				$sql = "SELECT distinct supplier FROM expenses ORDER BY supplier";
@@ -89,7 +89,7 @@ class sql
 				break;
 
 			case 'listaagendadashboard':
-				$sql = "SELECT s.*,DATE_FORMAT(s.day_start,'%d/%m/%Y') as data_entrada,
+				$sql = "SELECT s.*,DATE_FORMAT(s.day_start,'%d/%m/%Y') as data_entrada,DATE_FORMAT(s.day_end,'%d/%m/%Y') as data_saida,
 							DATE_FORMAT(s.date_of_surgery,'%d/%m/%Y') as data_cirurgia,
 							p.name as local_agendado 
 							FROM schedule s

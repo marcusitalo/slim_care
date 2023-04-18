@@ -53,6 +53,9 @@
         }
     
         function initFormUpdate(){    
+            $(".btnRemoveExpenses").click(function(){
+                $(this).parent().parent().remove()
+            })
             $("#modelExpenses").hide()
             $("#btnAddExpenses").click(function (event) {
                 clone = $("#modelExpenses").first().clone();

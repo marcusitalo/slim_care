@@ -85,6 +85,7 @@ class Estruturas
 						<thead>
 							<tr>
 							<th scope="col">Data da Despesa</th>
+							<th scope="col">Despesas</th>
 							<th scope="col">Quantidade</th>
 							<th scope="col">Total</th>
 							<th scope="col"></th>
@@ -96,6 +97,7 @@ class Estruturas
 		foreach ($dados as $k1 => $v1) {
 			$retorno .= '<tr>
 							<td>' . $v1['name'] . '</td>
+							<td>' . $v1['despesas'] . '</td>
 							<td>' . $v1['quantidade'] . '</td>
 							<td>R$ ' . $v1['total'] . '</td>
 							<td><a href="' . $base . 'admin/despesas/editar/' . $v1['id'] . '">Editar</a></td>
@@ -112,26 +114,20 @@ class Estruturas
 	{
 		$retorno = '<thead>
 						<tr class="text-dark">
-							<th scope="col">Data de Entrada</th>
 							<th scope="col">Paciente</th>
 							<th scope="col">Telefone</th>
-							<th scope="col">Data da cirurgia</th>
-							<th scope="col">Local</th>
-							<th scope="col">Cuidador hospitalar</th>
-							<th scope="col">Contrato</th>
+							<th scope="col">Data de Entrada</th>
+							<th scope="col">Data de Saída</th>
 						</tr>
 					</thead>
 					<tbody>';
 
 		foreach ($dados as $k1 => $v1) {
 			$retorno .= '<tr>
-							<td>' . $v1['data_entrada'] . '</td>
 							<td>' . $v1['patient_name'] . '</td>
 							<td>' . $v1['patient_phone'] . '</td>
-							<td>' . $v1['data_cirurgia'] . '</td>
-							<td>' . $v1['location_of_surgery'] . '</td>
-							<td>' . ($v1['need_caregiver'] ? "Sim" : "Não") . '</td>
-							<td>' . $v1['contract'] . '</td>
+							<td>' . $v1['data_entrada'] . '</td>
+							<td>' . $v1['data_saida'] . '</td>
 						</tr>';
 		}
 		$retorno .= "</tbody>";

@@ -7,8 +7,8 @@
   databases.000webhost.com
  */
 
-// $dbconfig["dev"] = array("mysqldb", "consultorio", "root", "12345", "mysql", false, "public");
-// $dbconfig["prod"] = array("mysqldb", "consultorio", "root", "12345", "mysql", false, "public");
+$dbconfig["dev"] = array("mysqldb", "consultorio", "root", "12345", "mysql", false, "public");
+$dbconfig["prod"] = array("mysqldb", "consultorio", "root", "12345", "mysql", false, "public");
 
-$dbconfig["dev"] = array("localhost", "506547", "506547", 'Fr33W3bH0571ng', "mysql", false, "public");
-$dbconfig["prod"] = array("localhost", "506547", "506547", 'Fr33W3bH0571ng', "mysql", false, "public");
+// $dbconfig["dev"] = array("localhost", "506547", "506547", 'Fr33W3bH0571ng', "mysql", false, "public");
+// $dbconfig["prod"] = array("localhost", "506547", "506547", 'Fr33W3bH0571ng', "mysql", false, "public");
