@@ -84,7 +84,7 @@ class Estruturas
 		$retorno = '<table class="table" id="dataTable">
 						<thead>
 							<tr>
-							<th scope="col">Nome</th>
+							<th scope="col">Data da Despesa</th>
 							<th scope="col">Quantidade</th>
 							<th scope="col">Total</th>
 							<th scope="col"></th>
@@ -125,10 +125,10 @@ class Estruturas
 
 		foreach ($dados as $k1 => $v1) {
 			$retorno .= '<tr>
-							<td>' . date("d/m/Y", strtotime($v1['data_entrada'])) . '</td>
+							<td>' . $v1['data_entrada'] . '</td>
 							<td>' . $v1['patient_name'] . '</td>
 							<td>' . $v1['patient_phone'] . '</td>
-							<td>' . date("d/m/Y", strtotime($v1['data_cirurgia'])) . '</td>
+							<td>' . $v1['data_cirurgia'] . '</td>
 							<td>' . $v1['location_of_surgery'] . '</td>
 							<td>' . ($v1['need_caregiver'] ? "Sim" : "Não") . '</td>
 							<td>' . $v1['contract'] . '</td>
@@ -222,11 +222,11 @@ class Estruturas
 
 		foreach ($dados as $k1 => $v1) {
 			$retorno .= '<tr>
-							<td data-label="Data">' . date("d/m/Y", strtotime($v1['data_entrada'])) . '</td>
+							<td data-label="Data">' . $v1['data_entrada'] . '</td>
 							<td data-label="Local">' . $v1['local_agendado'] . '</td>
 							<td data-label="Paciente">' . $v1['patient_name'] . '</td>
 							<td data-label="Valor">R$ ' . $v1['amount'] . '</td>
-							<td data-label="Valor">R$ ' . $v1['description_pay'] . '</td>
+							<td data-label="Valor">' . $v1['description_pay'] . '</td>
 
 						</tr>';
 		}
@@ -250,7 +250,7 @@ class Estruturas
 
 		foreach ($dados as $k1 => $v1) {
 			$retorno .= '<tr>
-							<td data-label="Data">' . date("d/m/Y", strtotime($v1['data_despesa'])) . '</td>
+							<td data-label="Data">' . $v1['data_despesa'] . '</td>
 							<td data-label="Despesa">' . $v1['supplier'] . '</td>
 							<td data-label="Valor">R$ ' . $v1['amount'] . '</td>
 						</tr>';

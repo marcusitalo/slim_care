@@ -69,10 +69,10 @@
                         <a class="nav-link page-scroll" href="#header">INÍCIO<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#details">DETALHES</a>
+                        <a class="nav-link page-scroll" href="#details">SERVIÇOS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#features">CARACTERISTICAS</a>
+                        <a class="nav-link page-scroll" href="#features">SOBRE NÓS</a>
                     </li>
                 </ul>
             </div>
@@ -89,7 +89,7 @@
                     <div class="col-lg-6 col-xl-5">
                         <div class="text-container">
                             <img class="img-fluid" style="width: 85%;" src="<?php echo $data['globais']; ?>images/logo2.png" alt="alternative">
-                            <p class="p-large">Disponibilizamos locais tranquilos e higienizados para sua melhor recuperação</p>
+                            <p class="p-small" style="color: white;">Os cuidados pós-operatórios são imprescindíveis para o melhor resultado da sua cirurgia. Pensando nisso, a Slim Care oferece profissionais treinados, o conforto e a tranquilidade que você tanto necessita nesse momento. </p>
                         </div> <!-- end of text-container -->
                     </div> <!-- end of col -->
                     <div class="col-lg-6 col-xl-7">
@@ -151,7 +151,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Cuidadora</h4>
                             <p>Devidamente capacitada,
-                                atendendo 24 h por dia, 7 dias
+                                atendendo 24h por dia, 7 dias
                                 por semana.</p>
                         </div>
                     </div>
@@ -224,7 +224,7 @@
                                 <div class="col-lg-6">
                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img2.png" alt="alternative">
-                                    </div> 
+                                    </div>
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
                         </div> <!-- end of tab-pane -->
@@ -239,11 +239,11 @@
                                     </div> <!-- end of image-container -->
                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img15.png" alt="alternative">
-                                    </div> 
+                                    </div>
                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img9.png" alt="alternative">
                                     </div> <!-- end of image-container -->
-                                    
+
                                 </div> <!-- end of col -->
                                 <div class="col-lg-6">
                                     <div class="image-container">
@@ -251,11 +251,11 @@
                                     </div> <!-- end of image-container -->
                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img14.png" alt="alternative">
-                                    </div> 
+                                    </div>
                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img7.png" alt="alternative">
                                     </div> <!-- end of image-container -->
-                                   
+
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
                         </div> <!-- end of tab-pane -->
@@ -270,9 +270,9 @@
                                     </div> <!-- end of image-container -->
                                 </div> <!-- end of col -->
                                 <div class="col-lg-6">
-                                     <div class="image-container">
+                                    <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img11.png" alt="alternative">
-                                    </div> <!-- end of image-container -->                                    
+                                    </div> <!-- end of image-container -->
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
                         </div> <!-- end of tab-pane -->
@@ -439,7 +439,7 @@
             </div> <!-- end of row -->
         </div> <!-- end of container -->
         <a href="https://storyset.com/" style="font-size: 10px;color: #b95d7c;">Illustrations by Storyset</a>
-        
+
     </div> <!-- end of footer -->
     <!-- end of footer -->
 

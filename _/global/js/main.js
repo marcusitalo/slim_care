@@ -192,7 +192,7 @@
   //     responsive: true,
   //   },
   // });
-  setTimeout(() => {
-    document.querySelector("body > div:last-of-type").style.display = "none";
-  }, 100);
+  // setTimeout(() => {
+  //   document.querySelector("body > div:last-of-type").style.display = "none";
+  // }, 100);
 })(jQuery);

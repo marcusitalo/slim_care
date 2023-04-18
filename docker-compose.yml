@@ -4,7 +4,6 @@ services:
   apache:
     build: .
     container_name: php7-apache2
-    restart: always
     command: >
       bash -c "a2enmod rewrite
       && apache2-foreground"
@@ -20,7 +19,6 @@ services:
   mysqldb:
     container_name: mysqlASW
     image: mysql:5.7
-    restart: always
     ports:
       - '3306:3306'
     environment:

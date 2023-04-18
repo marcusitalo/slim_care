@@ -440,7 +440,7 @@
   $(".button, a, button").mouseup(function () {
     $(this).blur();
   });
-  setTimeout(() => {
-    document.querySelector("body > div:last-of-type").style.display = "none";
-  }, 10);
+  // setTimeout(() => {
+  //   document.querySelector("body > div:last-of-type").style.display = "none";
+  // }, 10);
 })(jQuery);

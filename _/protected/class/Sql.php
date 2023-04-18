@@ -26,7 +26,7 @@ class sql
 				$sql = "SELECT * FROM supplier ORDER BY name";
 				break;
 			case 'listadedespesas':
-				$sql = "SELECT day_expenses as id, DATE_FORMAT (day_expenses,'%d/%m/%Y') as name, count(id) as quantidade, sum(amount) as total FROM expenses GROUP BY day_expenses ORDER BY day_expenses desc";
+				$sql = "SELECT day_expenses as id, DATE_FORMAT(day_expenses,'%d/%m/%Y') as name, count(id) as quantidade, sum(amount) as total FROM expenses GROUP BY day_expenses ORDER BY day_expenses desc";
 				break;
 			case 'datalistdespesas':
 				$sql = "SELECT distinct supplier FROM expenses ORDER BY supplier";
@@ -83,24 +83,24 @@ class sql
 				$sql = "SELECT 
 							(SELECT COALESCE(sum(amount),0) FROM schedule WHERE MONTH(day_start) = MONTH(now()) ) as receita,
 							(SELECT COALESCE(sum(amount),0) FROM expenses WHERE MONTH(day_expenses) = MONTH(now()) ) as despesas,
-							(SELECT count(distinct p.id) FROM place p INNER JOIN schedule s ON s.place_id = p.id AND DATE_FORMAT (now(),'%Y-%m-%d') not between s.day_start AND s.day_end) as disponivel,
-							(SELECT count(distinct p.id) FROM place p INNER JOIN schedule s ON s.place_id = p.id AND DATE_FORMAT (now(),'%Y-%m-%d') between s.day_start AND s.day_end) as ocupado
+							(SELECT count(distinct p.id) FROM place p WHERE p.id not in (SELECT distinct place_id from schedule where DATE_FORMAT(now(),'%Y-%m-%d') between day_start AND day_end)) as disponivel,
+							(SELECT count(distinct p.id) FROM place p WHERE p.id in (SELECT distinct place_id from schedule where DATE_FORMAT(now(),'%Y-%m-%d') between day_start AND day_end)) as ocupado
 						";
 				break;
 
 			case 'listaagendadashboard':
-				$sql = "SELECT s.*,DATE_FORMAT (s.day_start,'%d/%m/%Y') as data_entrada,
-							DATE_FORMAT (s.date_of_surgery,'%d/%m/%Y') as data_cirurgia,
+				$sql = "SELECT s.*,DATE_FORMAT(s.day_start,'%d/%m/%Y') as data_entrada,
+							DATE_FORMAT(s.date_of_surgery,'%d/%m/%Y') as data_cirurgia,
 							p.name as local_agendado 
 							FROM schedule s
 							INNER JOIN place p 	ON p.id = s.place_id 
-							AND s.day_start between DATE_FORMAT (now(),'%Y-%m-%d') AND DATE_ADD(DATE_FORMAT (now(),'%Y-%m-%d'), INTERVAL 1 WEEK)
+							AND s.day_start between DATE_FORMAT(now(),'%Y-%m-%d') AND DATE_ADD(DATE_FORMAT(now(),'%Y-%m-%d'), INTERVAL 1 WEEK)
 							ORDER BY s.day_start";
 				break;
 
 
 			case 'receita':
-				$sql = "SELECT s.*,DATE_FORMAT (s.day_start,'%d/%m/%Y') as data_entrada,p.name as local_agendado FROM schedule s
+				$sql = "SELECT s.*,DATE_FORMAT(s.day_start,'%d/%m/%Y') as data_entrada,p.name as local_agendado FROM schedule s
 							INNER JOIN place p 
 							ON p.id = s.place_id 
 							and s.day_start between STR_TO_DATE(:dtini,'%Y-%m-%d') AND STR_TO_DATE(:dtfim,'%Y-%m-%d')
@@ -109,7 +109,7 @@ class sql
 				break;
 
 			case 'despesa':
-				$sql = "SELECT *,DATE_FORMAT (day_expenses,'%d/%m/%Y') as data_despesa FROM expenses WHERE day_expenses between STR_TO_DATE(:dtini,'%Y-%m-%d') AND STR_TO_DATE(:dtfim,'%Y-%m-%d') ORDER BY supplier";
+				$sql = "SELECT *,DATE_FORMAT(day_expenses,'%d/%m/%Y') as data_despesa FROM expenses WHERE day_expenses between STR_TO_DATE(:dtini,'%Y-%m-%d') AND STR_TO_DATE(:dtfim,'%Y-%m-%d') ORDER BY supplier";
 				break;
 
 			case 'totaisreceitadespesa':

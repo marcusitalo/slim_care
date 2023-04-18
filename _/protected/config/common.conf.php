@@ -14,7 +14,7 @@ date_default_timezone_set('America/Fortaleza');
 
 
 //For framework use. Must be defined. Use full absolute paths and end them with '/'      eg. /var/www/project/
-$config['SITE_PATH'] = str_replace('\\', '/', realpath('..') . '/slimcare/');
+$config['SITE_PATH'] = str_replace('\\', '/', realpath('..') . '/_/');
 //$config['PROTECTED_FOLDER'] = 'protected/';
 $config['BASE_PATH'] = str_replace('\\', '/', realpath('..') . '/dooframework/');
 //for production mode use 'prod'
