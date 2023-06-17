@@ -21,16 +21,16 @@
                             <h3>Login</h3>
                         </div>
                         <form action='<?php echo $data['base']; ?>admin' method='POST'>
-
-                            <div class="form-floating mb-3">
-                                <input type="text" name='x-client' class="form-control" id="floatingInput" placeholder="Usuário" value="">
-                                <label for="floatingInput">Username</label>
-                            </div>
-                            <div class="form-floating mb-4">
-                                <input type="password" name='x-secret' class="form-control" id="floatingPassword" placeholder="Senha" value="">
-                                <label for="floatingPassword">Password</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Entrar</button>
+        
+                        <div class="form-floating mb-3">
+                            <input type="text" name='x-client' class="form-control" id="floatingInput" placeholder="Usuário" value="">
+                            <label for="floatingInput">Username</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" name='x-secret'  class="form-control" id="floatingPassword" placeholder="Senha" value="">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Entrar</button>                        
                         </form>
                     </div>
                 </div>

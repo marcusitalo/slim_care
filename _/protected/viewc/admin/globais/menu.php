@@ -57,7 +57,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="<?php echo $data['base']; ?>admin/usuarios/editar/<?php echo $data['identificador']; ?>" class="dropdown-item">Meus Dados</a>
-                            <a href="<?php echo $data['base']; ?>admin/logoutlogout" class="dropdown-item">Sair</a>
+                            <a href="<?php echo $data['base']; ?>admin/logout" class="dropdown-item">Sair</a>
                         </div>
                     </div>
                 </div>

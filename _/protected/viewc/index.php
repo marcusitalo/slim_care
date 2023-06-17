@@ -224,7 +224,7 @@
                                 <div class="col-lg-6">
                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img2.png" alt="alternative">
-                                    </div>
+                                    </div> 
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
                         </div> <!-- end of tab-pane -->
@@ -239,11 +239,11 @@
                                     </div> <!-- end of image-container -->
                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img15.png" alt="alternative">
-                                    </div>
+                                    </div> 
                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img9.png" alt="alternative">
                                     </div> <!-- end of image-container -->
-
+                                    
                                 </div> <!-- end of col -->
                                 <div class="col-lg-6">
                                     <div class="image-container">
@@ -251,11 +251,11 @@
                                     </div> <!-- end of image-container -->
                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img14.png" alt="alternative">
-                                    </div>
+                                    </div> 
                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img7.png" alt="alternative">
                                     </div> <!-- end of image-container -->
-
+                                   
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
                         </div> <!-- end of tab-pane -->
@@ -270,9 +270,9 @@
                                     </div> <!-- end of image-container -->
                                 </div> <!-- end of col -->
                                 <div class="col-lg-6">
-                                    <div class="image-container">
+                                     <div class="image-container">
                                         <img class="img-fluid" src="<?php echo $data['globais']; ?>img/img11.png" alt="alternative">
-                                    </div> <!-- end of image-container -->
+                                    </div> <!-- end of image-container -->                                    
                                 </div> <!-- end of col -->
                             </div> <!-- end of row -->
                         </div> <!-- end of tab-pane -->
@@ -439,7 +439,7 @@
             </div> <!-- end of row -->
         </div> <!-- end of container -->
         <a href="https://storyset.com/" style="font-size: 10px;color: #b95d7c;">Illustrations by Storyset</a>
-
+        
     </div> <!-- end of footer -->
     <!-- end of footer -->
 

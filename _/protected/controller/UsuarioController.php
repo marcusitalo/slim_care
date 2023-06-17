@@ -37,6 +37,7 @@ class UsuarioController extends CoreController
 		$this->data['action'] = $this->data['baseurl'] . "admin/" . $this->table . "/" . $this->data['acao'];
 
 		$this->data['name'] = $this->data['login'] = $this->data['senha'] = $this->data['disabled'] = $this->data['id'] = "";
+		$this->data['group_user'] = "Administrador";
 
 		$this->render("admin/globais/header", $this->data);
 		$this->render("admin/globais/menu", $this->data);
@@ -64,6 +65,7 @@ class UsuarioController extends CoreController
 		$this->data['id']						= $id;
 		$this->data['name']						= $objeto->name;
 		$this->data['login']					= $objeto->login;
+		$this->data['group_user']	 			= $objeto->group_user;
 		$this->data['senha']					= $senha;
 		$this->data['subtitulo']				= $subtitulo;
 		$this->data['acao'] 					= $acao;
@@ -87,6 +89,7 @@ class UsuarioController extends CoreController
 			if ($id == '') {
 				$objeto->name				= (isset($_POST['name'])) ? $_POST['name'] : null;
 				$objeto->login				= (isset($_POST['login'])) ? $_POST['login'] : null;
+				$objeto->group_user			= (isset($_POST['group_user'])) ? $_POST['group_user'] : "Visualizador";
 				$senha						= (isset($_POST['senha'])) ? $_POST['senha'] : null;
 				Doo::loadClass('Cripto');
 				$senha = cripto::criptografar($senha);
@@ -102,6 +105,7 @@ class UsuarioController extends CoreController
 				$objeto						= $result[0];
 				$objeto->name				= (isset($_POST['name'])) ? $_POST['name'] : null;
 				$objeto->login				= (isset($_POST['login'])) ? $_POST['login'] : null;
+				$objeto->group_user			= (isset($_POST['group_user'])) ? $_POST['group_user'] : "Visualizador";
 				$senha						= (isset($_POST['senha'])) ? $_POST['senha'] : null;
 				Doo::loadClass('Cripto');
 				$senha = cripto::criptografar($senha);
