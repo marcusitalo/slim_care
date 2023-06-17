@@ -94,7 +94,6 @@ class UsuarioController extends CoreController
 				Doo::loadClass('Cripto');
 				$senha = cripto::criptografar($senha);
 				$objeto->senha				= $senha;
-				$objeto->group_user			= "Administrador";
 				$objeto->update_at 			= date('Y-m-d H:i:s');
 				$result = Doo::db()->insert($objeto);
 				// var_dump(Doo::db()->showSQL());

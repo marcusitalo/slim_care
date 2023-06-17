@@ -1,8 +1,10 @@
 <!-- Table Start -->
 <div class="container-fluid pt-4 px-4">
-    <div class="row g-4" style="text-align: end;">
+     <?php if( $_SESSION['user_system']['group'] == "Administrador" ): ?> 
+     <div class="row g-4" style="text-align: end;">
         <a href='<?php echo $data['base']; ?>admin/locais/cadastro'><button type="button" class="btn btn-primary m-2">Criar novo local</button></a>
     </div>
+ <?php endif; ?>
     <div class="row g-4">
 
         <div class="col-12">
